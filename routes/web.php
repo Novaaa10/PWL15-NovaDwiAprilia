@@ -39,6 +39,26 @@ Route::middleware('role:pustakawan')->group(function () {
     Route::put('/buku/edit/update/{id}', [BookController::class, 'update'])->name('books.update');
     Route::delete('/buku/{id}', [BookController::class, 'destroy'])->name('books.destroy');
 });
+use App\Http\Controllers\CategoryController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+});
+
+Route::get(
+    '/categories-export',
+    [CategoryController::class,'export']
+)->name('categories.export');
+
+Route::get(
+    '/categories-print',
+    [CategoryController::class,'print']
+)->name('categories.print');
 
 // Route::middleware('role:mahasiswa')->group(function () {
 //     Route::get('/buku', [BookController::class, 'show'])->name('books.show');

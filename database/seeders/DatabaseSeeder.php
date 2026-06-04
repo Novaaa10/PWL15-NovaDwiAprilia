@@ -17,12 +17,18 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            BookshelfSeeder::class,
-            BookSeeder::class,
-            RoleSeeder::class,
-            UserSeeder::class,
+    BookshelfSeeder::class,
+    CategorySeeder::class,
 
-        ]);
+    RoleSeeder::class,
+    UserSeeder::class,
+
+    BookSeeder::class,
+
+    LoanSeeder::class,
+    LoanDetailSeeder::class,
+    ReturnSeeder::class,
+]);
 
         // User::factory(10)->create();
 

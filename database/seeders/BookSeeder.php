@@ -22,6 +22,7 @@ class BookSeeder extends Seeder
                 'publisher' => 'Informatika Press',
                 'city' => 'Cianjur',
                 'bookshelf_id' => 1,
+                'category_id' => 1,
             ]
         ]);
     }

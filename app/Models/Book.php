@@ -9,14 +9,15 @@ class Book extends Model
     protected $table = 'books';
 
     protected $fillable =[
-        'title',
-        'author',
-        'year',
-        'publisher',
-        'city',
-        'cover',
-        'bookshelf_id',
-    ];
+    'title',
+    'author',
+    'year',
+    'publisher',
+    'city',
+    'cover',
+    'bookshelf_id',
+    'category_id',
+];
 
     public function bookshelf()
     {
@@ -37,5 +38,8 @@ class Book extends Model
         }
         return $books_filter;
     }
-    
+    public function category()
+{
+    return $this->belongsTo(Category::class);
+}
 }
